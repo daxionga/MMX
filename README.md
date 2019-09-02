@@ -1,21 +1,21 @@
-MM - Miner Manager
+MMX - Miner Manager with Exstension
 ==================
 
-Miner Manager is a bitcoin task generator firmware that fit FPGA and faster mining machine
+Miner Manager is a stratum task generator firmware that fit FPGA and ASIC miners.
 
 Main objectives
 =============
 * It is using stratum protocol
-* Generator the task inside FPGA. all Double-SHA256 was done by FPGA. far more faster then CPU
-* Test the nonce inside the FPGA. only report the >= DIFF taskes back to host (cgminer)
-* It fit any kinds of bitcoin mining ASIC, (you may needs some VerilogHDL coding)
-* It have LM32 CPU inside, fit in XC6SLX16 small FPGAs
+* It generate the tasks (block headers) inside FPGA. all Double-SHA256 was done by FPGA, far more faster than CPU.
+* Test the nonce inside the FPGA. only report the >= DIFF tasks back to the host (CGMiner)
+* It fits any kinds of stratum mining ASIC, (you may needs some VerilogHDL coding)
+* It has a LM32 CPU inside, fit in XC6SLX16 small FPGAs
 * The MM datasheet: http://downloads.canaan-creative.com/software/mm/MM_SOC_Specification.pdf
 
 Directory structure
 ===================
 
-* `firmware`: C code running in LatticeMico32 soft processor
+* `firmware`: C codes running in LatticeMico32 soft processor
 * `ipcores_dir`: IP cores
 * `synth`: Directory for synthesize and build of the hardware part
 * `verilog`: The VerilogHDL source code
@@ -26,8 +26,8 @@ How to build?
 First you need install the ISE for sure. then edit the `isedir` under xilinx.mk
 by default we are using /home/Xilinx/14.6/ISE_DS/
 
-For build the toolchain for lm32-rtems, it meet some problem with gcc-5.2.1 under Ubuntu and
-gcc-4.9.2 under Debian, for fix that. just switch to gcc-4.8 with CC=gcc=4.8 make ... and you
+For build the toolchain for lm32-rtems, it meets some problems with gcc-5.2.1 under Ubuntu and
+gcc-4.9.2 under Debian, for fix that, just switch to gcc-4.8 with CC=gcc=4.8 make ... and you
 also need texinfo_4.13a for fix the gdb build.
 
 1. $ make -C firmware/toolchain # Install the lm32-rtems-4.11- toolchain under /opt
@@ -36,15 +36,11 @@ also need texinfo_4.13a for fix the gdb build.
 
 Discussion
 ==========
-* IRC: #avalon @freenode.net
-* Mailing list: http://lists.canaan-creative.com/
-* Documents/Downloads: https://en.bitcoin.it/wiki/Avalon2
+* Telegram: https://t.me/EHashPublic
 
 Support
 =======
-* Avalon2 machine (105GHs, 315GHs)
-* Avalon3 machine (300GHs, 800GHs)
-* Avalon3 card (? GHs)
+* TBD.
 
 License
 =======
